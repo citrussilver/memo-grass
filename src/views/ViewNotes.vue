@@ -1,7 +1,7 @@
 <template>
     <div class="notes">
 
-        <div class="card sea-green p-4 mb-5">
+        <!-- <div class="card sea-green p-4 mb-5">
             <div class="field">
                 <div class="control">
                     <div style="position: relative;">
@@ -39,13 +39,26 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <AddEditNote 
+            v-model="newNote"
+        >
+            <template #buttons>
+                <button 
+                    class="button is-link bangladesh-green" 
+                    :disabled="!newNote" 
+                    @click="addNote"
+                >
+                    Add New Note
+                </button>
+            </template>
+        </AddEditNote>
 
         <Note 
             v-for="note in storeNotes.notes" 
             :key="note.id" 
             :note="note" 
-            @deleteClick="deleteNote"
         />
 
     </div>
@@ -54,6 +67,7 @@
 <script setup>
 import { ref } from 'vue'
 import Note from '@/components/Notes/Note.vue'
+import AddEditNote from '@/components/Notes/AddEditNote.vue';
 import { useStoreNotes } from '@/stores/storeNotes';
 
 const newNote = ref(''),
@@ -61,28 +75,10 @@ const newNote = ref(''),
 
 const storeNotes = useStoreNotes();
 
-// const notes = ref([
-//     {
-//         id: 'id1', 
-//         content: '#1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum, eum!'
-//     },
-//     {
-//         id: 'id2', 
-//         content: '#2 Lorem ipsum dolor sit amet consectetur adipisicing.'
-//     },
-// ])
-
 const addNote = () => {
-    
     storeNotes.addNote(newNote.value);
-    
     newNote.value = ''
     newNoteRef.value.focus()
-
-}
-
-const deleteNote = idToDelete => {
-    storeNotes.notes = storeNotes.notes.filter(note => note.id !== idToDelete)
 }
 
 </script>
