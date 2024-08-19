@@ -1,17 +1,37 @@
 <template>
-    <div class="card sea-green p-4 mb-5">
+    <div class="card p-4 mb-5" 
+        :class="`${ bgColor }`"
+    >
+        <label 
+            v-if="label"
+            class="label has-text-white"
+        >
+            {{ label }}
+        </label>
+
         <div class="field">
             <div class="control">
                 <div style="position: relative;">
                     <textarea 
                         id="note_txtarea" 
                         class="textarea" 
-                        placeholder="Add a new note" 
-                        ref="newNoteRef" 
+                        :placeholder="placeholder" 
+                        ref="textareaRef" 
                         :value=modelValue 
                         @input="$emit('update:modelValue', $event.target.value)"
                     >
                     </textarea>
+                    <div 
+                        style="position: absolute; top: 2px; right: 2px;" 
+                        v-if="modelValue.length > 0"
+                    >
+                        <button 
+                            class="delete has-background-grey" 
+                            
+                        >
+                            ✕
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,20 +45,43 @@
 </template>
 <script setup>
 
+import { ref } from 'vue'
+
 const props = defineProps({
     modelValue: {
         type: String,
         required: true
+    },
+    bgColor: {
+        type: String,
+        default: 'sea-green'
+    },
+    placeholder: {
+        type: String,
+        default: 'Type something...'
+    },
+    label: {
+        type: String
     }
 })
 
 const emit = defineEmits(['update:modelValue'])
 
+const textareaRef = ref(null)
+
+const focusTextarea = () => {
+    textareaRef.value.focus()
+}
+
+defineExpose({
+    focusTextarea
+})
+
 </script>
 
 <style scoped>
-.bangladesh-green {
-    background-color: rgb(0, 114, 80) !important;
+.lite-french-beige {
+    background-color: rgb(210, 173, 114) !important;
 }
 
 .sea-green {
