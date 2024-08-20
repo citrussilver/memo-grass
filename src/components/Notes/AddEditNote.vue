@@ -37,8 +37,8 @@
         </div>
 
         <div class="field is-grouped is-grouped-right">
-            <div class="control">
-                <slot name="buttons" />
+            <div class="control is-flex" style="gap: 1rem !important;" >
+                <slot name="buttons"/>
             </div>
         </div>
     </div>

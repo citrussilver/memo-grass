@@ -31,11 +31,33 @@ export const useStoreNotes = defineStore('storeNotes', {
     },
     deleteNote(idToDelete) {
       this.notes = this.notes.filter(note => note.id !== idToDelete)
+    },
+    updateNote(id, content) {
+
+      console.log(`id: ${id}`)
+
+      let index = this.notes.findIndex(note => note.id == id)
+
+      console.log(`index: ${index}`)
+      console.log(content)
+      this.notes[index].content = content
     }
   },
   getters: {
+
     getNoteContent: (state) => {
-      return state.notes[0].content
+
+      return (id) => {
+
+        return state.notes.filter(note => note.id === id)[0].content
+
+      }
+    },
+    totalNotesCount: (state) => {
+      return state.notes.length
+    },
+    totalCharactersCount: (state) => {
+      return state.notes.reduce((acc, note) => acc += note.content.length, 0)
     }
   }
 })

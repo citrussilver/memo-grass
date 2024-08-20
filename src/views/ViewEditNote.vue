@@ -17,6 +17,7 @@
                 <button 
                     class="button is-link bangladesh-green" 
                     :disabled="!noteContent" 
+                    @click="handleSaveClicked"
                 >
                     Save Note
                 </button>
@@ -27,16 +28,24 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import AddEditNote from '@/components/Notes/AddEditNote.vue';
 import { useStoreNotes } from '@/stores/storeNotes';
 
 const storeNotes = useStoreNotes()
 const noteContent = ref('')
 
-noteContent.value = storeNotes.getNoteContent
-
 const route = useRoute()
+const router = useRouter()
+
+noteContent.value = storeNotes.getNoteContent(route.params.id)
+
+const handleSaveClicked = () => {
+
+    storeNotes.updateNote(route.params.id, noteContent.value)
+
+    router.push('/')
+}
 
 </script>
 
