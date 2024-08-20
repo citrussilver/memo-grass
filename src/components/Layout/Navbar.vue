@@ -10,13 +10,15 @@
                 </svg>
     
                 </a> -->
-                <div class="navbar-item is-size-4 is-family-monospace white-ft">
-                    Memo Grass
-                </div>
+                <RouterLink to="/">
+                    <div class="navbar-item is-size-4 is-family-monospace has-text-white">
+                            Memo Grass
+                    </div>
+                </RouterLink>
     
                 <a 
                     role="button" 
-                    class="navbar-burger" 
+                    class="navbar-burger has-text-white" 
                     :class="{ 'is-active': showMobileNav}"
                     aria-label="menu" 
                     aria-expanded="false" 
@@ -34,37 +36,13 @@
                 id="navbarBasicExample" 
                 class="navbar-menu" 
                 :class="{ 'is-active': showMobileNav}"
-            >
-                <!-- <div class="navbar-start">
-            
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                    More
-                    </a>
-    
-                    <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        About
-                    </a>
-                    <a class="navbar-item is-selected">
-                        Jobs
-                    </a>
-                    <a class="navbar-item">
-                        Contact
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">
-                        Report an issue
-                    </a>
-                    </div>
-                </div>
-                </div> -->
-    
+            >    
                 <div class="navbar-end">
                     <RouterLink 
                         to="/"
                         class="navbar-item white-ft" 
-                        active-class="is-active"
+                        active-class="is-active" 
+                        @click="showMobileNav = false"
                     >
                         Notes
                     </RouterLink>
@@ -72,7 +50,7 @@
                     <RouterLink 
                         to="/stats"
                         class="navbar-item white-ft" 
-                        active-class="is-active"
+                        @click="showMobileNav = false"
                     >
                         Stats
                     </RouterLink>
@@ -111,12 +89,11 @@ const showMobileNav = ref(false)
 }
 
 .white-ft {
-    background-color: rgb(88, 158, 75) !important;
-    color: #fff !important;
+    background-color: rgba(184, 224, 82, 0.3);
 }
 
-.white-ft:hover {
-    background-color: rgba(184, 224, 82, 0.3) !important;
+.white-ft:hover, .lite-jun-bud {
+    background-color: rgb(88, 158, 75) !important;
 }
 
 @media (max-width: 1023px) {
