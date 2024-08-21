@@ -66,8 +66,7 @@ onClickOutside(modalCardRef, closeModal)
 /* keyboard control */
 
 const handleKeyboard = e => {
-    console.log('close it!')
-    // keyCode is already depreacated - source MDN
+    // keyCode is already deprecated - source MDN
     if(e.code == 'Escape' || e.key == 'Escape') {
         closeModal()
     }
