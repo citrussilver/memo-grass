@@ -18,7 +18,8 @@
                         :placeholder="placeholder" 
                         ref="textareaRef" 
                         :value=modelValue 
-                        @input="$emit('update:modelValue', $event.target.value)"
+                        @input="$emit('update:modelValue', $event.target.value)" 
+                        v-autofocus
                     >
                     </textarea>
                     <div 
@@ -27,7 +28,7 @@
                     >
                         <button 
                             class="delete has-background-grey" 
-                            
+                            @click="$emit('update:modelValue', '')"
                         >
                             ✕
                         </button>
@@ -35,7 +36,6 @@
                 </div>
             </div>
         </div>
-
         <div class="field is-grouped is-grouped-right">
             <div class="control is-flex" style="gap: 1rem !important;" >
                 <slot name="buttons"/>
@@ -46,6 +46,7 @@
 <script setup>
 
 import { ref } from 'vue'
+import { vAutofocus } from '@/directives/vAutofocus';
 
 const props = defineProps({
     modelValue: {

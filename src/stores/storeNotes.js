@@ -38,8 +38,6 @@ export const useStoreNotes = defineStore('storeNotes', {
 
       let index = this.notes.findIndex(note => note.id == id)
 
-      console.log(`index: ${index}`)
-      console.log(content)
       this.notes[index].content = content
     }
   },
