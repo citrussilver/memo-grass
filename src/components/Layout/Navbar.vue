@@ -23,7 +23,8 @@
                     aria-label="menu" 
                     aria-expanded="false" 
                     data-target="navbarBasicExample" 
-                    @click.prevent="showMobileNav = !showMobileNav"
+                    @click.prevent="showMobileNav = !showMobileNav" 
+                    ref="navbarBurgerRef"
                 >
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -35,7 +36,8 @@
             <div 
                 id="navbarBasicExample" 
                 class="navbar-menu" 
-                :class="{ 'is-active': showMobileNav}"
+                :class="{ 'is-active': showMobileNav}" 
+                ref="navbarMenuRef"
             >    
                 <div class="navbar-end">
                     <RouterLink 
@@ -77,9 +79,21 @@
 <script setup>
 
 import { ref } from 'vue'
+import { onClickOutside } from '@vueuse/core';
 
 /* mobile nav */
 const showMobileNav = ref(false)
+
+const navbarMenuRef = ref(null)
+const navbarBurgerRef = ref(null)
+
+
+onClickOutside(navbarMenuRef, () => {
+    showMobileNav.value = false
+}, {
+    ignore: [navbarBurgerRef]
+})
+
 </script>
 
 <style>
@@ -89,7 +103,8 @@ const showMobileNav = ref(false)
 }
 
 .white-ft {
-    background-color: rgba(184, 224, 82, 0.3);
+    /* background-color: rgba(184, 224, 82, 0.3); */
+    color: #fff !important;
 }
 
 .white-ft:hover, .lite-jun-bud {
@@ -102,5 +117,10 @@ const showMobileNav = ref(false)
         left: 0;
         width: 100%;
     }
+
+    .white-ft {
+    /* background-color: rgba(184, 224, 82, 0.3); */
+    color: #000 !important;
+}
 }
 </style>
