@@ -16,12 +16,8 @@ export function useWatchCharacters(valueToWatch, maxChars = 100) {
                 pauseOnHover: true,
                 closeOnClick: true
             })
-
-            console.log(newValue)
     
             valueToWatch.value = newValue.slice(0, maxChars)
-
-            console.log(newValue)
         }
     })
 }
