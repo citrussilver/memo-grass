@@ -22,8 +22,8 @@
             :key="note.id" 
             :note="note" 
         />
-
     </div>
+    
 </template>
 
 <script setup>
@@ -31,17 +31,20 @@ import { ref } from 'vue'
 import Note from '@/components/Notes/Note.vue'
 import AddEditNote from '@/components/Notes/AddEditNote.vue';
 import { useStoreNotes } from '@/stores/storeNotes';
+import { useWatchCharacters } from '@/use/useWatchCharacters'
 
 const newNote = ref('')
 const addEditNoteRef = ref(null)
 
-const storeNotes = useStoreNotes();
+const storeNotes = useStoreNotes()
 
 const addNote = () => {
-    storeNotes.addNote(newNote.value);
+    storeNotes.addNote(newNote.value)
     newNote.value = ''
     addEditNoteRef.value.focusTextarea()
 }
+
+useWatchCharacters(newNote)
 
 </script>
 
