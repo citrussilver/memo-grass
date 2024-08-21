@@ -33,6 +33,12 @@
                             ✕
                         </button>
                     </div>
+                    <div 
+                        style="position: absolute; bottom: -25px; left: 2px; color: #fff;" 
+                        v-if="modelValue.length > 0"
+                    >
+                        {{ modelValue.length }} / 100
+                    </div>
                 </div>
             </div>
         </div>
