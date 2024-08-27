@@ -1,20 +1,13 @@
 <template>
-    <div 
-        class="card mb-4" 
-    >
-        <div class="card-content">
-            <div class="content">
+    <div>
+        <div class="tcard">
+            <div>
                 {{ note.content }}
-                <div class="has-text-right has-text-grey-light mt-2">
-                    <small>{{ characterLength }}</small>
+                <div class="columns is-mobile has-text-grey-light mt-2">
+                    <small class="column">{{ dateFormatted }}</small>
+                    <small class="column has-text-right">{{ characterLength }}</small>
                 </div>
-                <!-- <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">
-                    #responsive</a>
-                <br />
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> -->
             </div>
-        </div>
-        <footer class="card-footer">
             <RouterLink 
                 class="card-footer-item" 
                 :to="`/editNote/${ note.id }`"
@@ -22,12 +15,12 @@
                 Edit
             </RouterLink>
             <a href="#" 
-                class="card-footer-item" 
+                class="card-footer-item delete-note" 
                 @click.prevent="modals.deleteNote = true"
             >
                 Delete
             </a>
-        </footer>
+        </div>
         <ModalDeleteNote 
             v-if="modals.deleteNote" 
             v-model="modals.deleteNote" 
@@ -39,8 +32,9 @@
 <script setup>
 
 import { computed, reactive } from 'vue'
-import { useStoreNotes } from '@/stores/storeNotes';
-import ModalDeleteNote from './ModalDeleteNote.vue';
+import { useStoreNotes } from '@/stores/storeNotes'
+import { useDateFormat } from '@vueuse/core'
+import ModalDeleteNote from './ModalDeleteNote.vue'
 
 
 const storeNotes = useStoreNotes();
@@ -50,6 +44,11 @@ const props = defineProps({
         type: Object,
         required: true
     }
+})
+
+const dateFormatted = computed(() => {
+    let date = new Date(parseInt(props.note.date))
+    return useDateFormat(date, 'YYYY-MM-DD HH:mm:ss')
 })
 
 const characterLength = computed(() => {
@@ -65,3 +64,19 @@ const modals = reactive({
 })
 
 </script>
+
+<style scoped>
+
+.card-footer-item:hover {
+    background-color: rgba(43, 130, 73, 0.55) !important;
+    border-radius: 0.25rem;
+}
+
+.card-footer-item.delete-note:hover {
+    /* Persian Red */
+    background-color: rgba(213, 45, 48, 0.80) !important;
+    color: #fff;
+    border-radius: 0.25rem;
+}
+
+</style>

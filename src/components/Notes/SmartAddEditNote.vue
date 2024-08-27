@@ -8,6 +8,7 @@
         >
             {{ label }}
         </label>
+        
 
         <div class="field">
             <div class="control">
@@ -19,7 +20,7 @@
                         ref="textareaRef" 
                         :value=modelValue 
                         @input="$emit('update:modelValue', $event.target.value)" 
-                        cols="5" 
+                        rows="15" 
                         v-autofocus
                     >
                     </textarea>

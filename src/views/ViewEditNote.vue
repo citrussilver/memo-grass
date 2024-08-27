@@ -5,7 +5,6 @@
             bgColor="lite-french-beige" 
             placeholder="Edit note" 
             label="Edit Note"
-            ref="addEditNoteRef"
         >
             <template #buttons>
                 <button 
@@ -28,9 +27,10 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router';
-import AddEditNote from '@/components/Notes/AddEditNote.vue';
-import { useStoreNotes } from '@/stores/storeNotes';
+import { useRoute, useRouter } from 'vue-router'
+import AddEditNote from '@/components/Notes/AddEditNote.vue'
+import { useStoreNotes } from '@/stores/storeNotes'
+import { useWatchCharacters } from '@/use/useWatchCharacters'
 
 const storeNotes = useStoreNotes()
 const noteContent = ref('')
@@ -46,6 +46,8 @@ const handleSaveClicked = () => {
 
     router.push('/')
 }
+
+useWatchCharacters(noteContent)
 
 </script>
 
