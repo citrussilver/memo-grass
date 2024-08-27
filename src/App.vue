@@ -1,30 +1,21 @@
 <template>
-  <div class="bud-green">
-    <NavBar />
-    <div class="container is-max-desktop px-2 py-4">
-      <RouterView />
-    </div>
-  </div>
+  <MainLayout />
 </template>
 
 <script setup>
 /* imports */
-import NavBar from './components/Layout/Navbar.vue';
+import MainLayout from './components/Layout/Main.vue'
 import { onMounted } from 'vue';
-import { useStoreNotes } from '@/stores/storeNotes';
+import { useStoreAuth } from './stores/storeAuth';
 
-const storeNotes = useStoreNotes()
+const storeAuth = useStoreAuth()
 
 onMounted(() => {
-  storeNotes.getNotes()
+  storeAuth.init()
 })
 
 </script>
 
 <style>
 @import 'bulma/css/bulma.min.css';
-
-.bud-green {
-  background-color: rgba(122, 190, 77, 0.1);
-}
 </style>
