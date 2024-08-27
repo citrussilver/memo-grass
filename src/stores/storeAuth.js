@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { auth } from '@/js/firebase'
+import { auth } from '@/firebase/firebase'
 import { 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
