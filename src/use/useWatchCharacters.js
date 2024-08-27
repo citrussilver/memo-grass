@@ -1,11 +1,12 @@
 import { watch } from 'vue';
 import { toast } from 'bulma-toast'
+import consts from '@/constants/constants';
 
-export function useWatchCharacters(valueToWatch, maxChars = 100) {
+export function useWatchCharacters(valueToWatch, maxChars = consts.character_limit) {
     
     watch(valueToWatch, (newValue, oldValue) => {
         
-        // test to intercept characters > 100
+        // test to intercept characters > 160
         if(newValue.length > maxChars) {
             toast({
                 message: `Sorry! Only ${maxChars} characters are allowed.`,
