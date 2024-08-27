@@ -5,7 +5,7 @@ import {
   query, orderBy 
 } from "firebase/firestore"
 
-import { db } from '@/js/firebase'
+import { db } from '@/firebase/firebase'
 import { useStoreAuth } from './storeAuth'
 
 let notesCollectionRef
@@ -100,11 +100,7 @@ export const useStoreNotes = defineStore('storeNotes', {
 
       return (id) => {
 
-        return state.notes.filter(note => {
-          console.log('id', id)
-          console.log('note.id', note.id)
-          return note.id === id
-        })[0].content
+        return state.notes.filter(note => note.id === id)[0].content
 
       }
     },
