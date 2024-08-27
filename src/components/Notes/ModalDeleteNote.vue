@@ -27,7 +27,7 @@
                 </button>
                 <button 
                     class="button is-danger" 
-                    @click="storeNotes.deleteNote(noteId)"
+                    @click="deleteNote"
                 >
                     Delete
                 </button>
@@ -82,5 +82,10 @@ onUnmounted(() => {
 })
 
 const storeNotes = useStoreNotes()
+
+const deleteNote = () => {
+    storeNotes.deleteNote(props.noteId)
+    closeModal()
+}
 
 </script>

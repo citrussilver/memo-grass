@@ -73,7 +73,7 @@ const handleSaveClicked = () => {
     console.log('noteContent.value', noteContent.value)
 
     if(noteContent.value.length > 0) {
-        storeNotes.updateNote(route.params.id, noteContent.value)
+        storeNotes.updateNote(props.noteId, noteContent.value)
         noteContent.value = ''
 
         closeModal()
