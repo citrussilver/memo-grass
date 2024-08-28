@@ -1,3 +1,3 @@
 export default {
-    character_limit: 999
+    character_limit: 1150
 }

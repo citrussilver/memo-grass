@@ -1,26 +1,16 @@
 <template>
-    <div class="card p-4 mb-5" 
-        :class="`${ bgColor }`"
-    >
-        <label 
-            v-if="label"
-            class="label has-text-white"
-        >
-            {{ label }}
-        </label>
-        
-
-        <div class="field">
-            <div class="control">
+    <div style="display: flex; justify-content: center;">
+        <div class="cards-container">
+            <div class="card-1">
                 <div style="position: relative;">
                     <textarea 
                         id="note_txtarea" 
-                        class="textarea" 
+                        class="textarea cust-textarea columbia-blue-color" 
                         :placeholder="placeholder" 
                         ref="textareaRef" 
                         :value=modelValue 
                         @input="$emit('update:modelValue', $event.target.value)" 
-                        rows="15" 
+                        rows="22" 
                         v-autofocus
                     >
                     </textarea>
@@ -36,27 +26,30 @@
                         </button>
                     </div>
                     <div 
-                        style="position: absolute; bottom: -25px; left: 2px; color: #fff;" 
-                        v-if="modelValue.length > 0"
+                        style="position: absolute; bottom: -25px; left: 2px;" 
+                        v-if="modelValue.length > 0" 
+                        class="darkgrey"
                     >
                         {{ modelValue.length }} / {{ consts.character_limit }}
                     </div>
                 </div>
+                <div class="field is-grouped is-grouped-right">
+                    <div class="control is-flex" style="gap: 1rem !important;" >
+                        <slot name="buttons"/>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="field is-grouped is-grouped-right">
-            <div class="control is-flex" style="gap: 1rem !important;" >
-                <slot name="buttons"/>
-            </div>
+            <div class="card-2">card 2</div>
+            <div class="card-3">card 3</div>
         </div>
     </div>
+
 </template>
 <script setup>
 
 import { ref } from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
 import consts from '@/constants/constants'
-
 
 const props = defineProps({
     modelValue: {
@@ -91,18 +84,78 @@ defineExpose({
 </script>
 
 <style scoped>
+
+.cards-container {
+    position: relative; 
+    height: 900px;
+    width: 500px;
+}
+
+.card-1 {
+  
+    position: absolute; 
+    left: var(--left-post); 
+    top: var(--top-post); 
+    z-index: 2;
+    
+    /* Columbia Blue */
+    background-color: var(--columbia-blue);
+    
+    border-radius: 20px;
+    padding: 2em;
+    width: var(--card-one-width);
+    height: var(--card-height);
+}
+  
+.card-2 {
+    
+    position: absolute; 
+    left: calc(var(--left-post) + 10px); 
+    top: calc(var(--top-post) - 10px); 
+    z-index: 1;
+
+
+    /* Brown Yellow */
+    background-color: var(--brown-yellow);
+
+    border-radius: 20px;
+    padding: 2em;
+    width: calc(var(--card-one-width) - var(--diff));
+    height: var(--card-height);
+
+    transform: rotate(var(--base-degree));
+}
+  
+.card-3 {
+    position: absolute; 
+    left: calc(var(--left-post) + 20px); 
+    top: calc(var(--top-post) - 20px); 
+    z-index: 0;
+    
+    /* Arylide Yellow */
+    background-color: var(--arylide-yellow);
+    
+    border-radius: 20px;
+    padding: 2em;
+    width: calc(var(--card-one-width) - (var(--diff)*2));
+    height: var(--card-height);
+    
+    transform: rotate(calc(var(--base-degree)*2));
+    
+}
+  
 .lite-french-beige {
-    background-color: rgb(210, 173, 114) !important;
+    background-color: var(--lite-french-beige) !important;
 }
 
 .sea-green {
-    background-color: rgba(43, 130, 73, 0.75) !important;
+    background-color: var(--sea-green-75-perc) !important;
 }
 
 .clear-btn {
     position: absolute; 
-    top: 5px; 
-    right: 5px; 
+    top: 10px; 
+    right: -4px; 
     opacity: 0.5;
 }
 
@@ -110,7 +163,36 @@ defineExpose({
     opacity: 0.9;
 }
 
-textarea {
+.cust-textarea {
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    padding: calc(.75em - 1px);
+
+    box-shadow: none !important;
+
+    width: 100%;
+    border-color: none !important;
+
+    color: var(--darkgrey-color);
+
+    line-height: 1.5;
+
+    border: none !important;
+    overflow: auto !important;
+    outline: none !important;
+
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    
     resize: none;
+}
+
+@media (max-width: 1023px) {
+    .cards-container {
+        position: relative; 
+        left: 0;
+        width: 100%;
+    }
 }
 </style>

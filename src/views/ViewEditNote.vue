@@ -53,6 +53,6 @@ useWatchCharacters(noteContent)
 
 <style scoped>
 .bangladesh-green {
-    background-color: rgb(0, 114, 80) !important;
+    background-color: var(--bangladesh-green) !important;
 }
 </style>

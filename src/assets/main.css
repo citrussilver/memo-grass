@@ -1,35 +1,48 @@
-@import './base.css';
+:root {
+    font-size: 16px;;
+    --darkgrey-color: rgb(54, 54, 54);
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+    /*
+        Pineapple Cocktails Colors 
+        https://www.schemecolor.com/pineapple-cocktails.php
+    */
+    --columbia-blue: rgb(194, 228, 221);
+    --brown-yellow: rgb(204, 145, 99);
+    --arylide-yellow: rgb(239, 207, 101);
+
+
+    --lite-french-beige: rgb(210, 173, 114);
+    --sea-green-75-perc: rgba(43, 130, 73, 0.75);
+    --sea-green-55-perc: rgba(43, 130, 73, 0.55);
+    --bangladesh-green: rgb(0, 114, 80);
+
+    --persian-red-80-perc: rgba(213, 45, 48, 0.80);
+    --lava: rgb(207, 22, 23);
+
+    /* Smart Add Edit Note Card Styles*/
+    --card-one-width: 500px;
+    --card-height: 635px;
+    --diff: 25px;
+    --base-degree: -5deg;
+    --left-post: 0px;
+    --top-post: 70px;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.darkgrey {
+    color: var(--darkgrey-color);
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.columbia-blue-color {
+    background-color: var(--columbia-blue) !important;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.operation-btn:hover {
+    background-color: var(--sea-green-55-perc) !important;
+    border-radius: 0.25rem;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.operation-btn.delete-note:hover {
+    background-color: var(--persian-red-80-perc) !important;
+    color: #fff;
+    border-radius: 0.25rem;
 }
