@@ -9,13 +9,13 @@
                 </div>
             </div>
             <RouterLink 
-                class="card-footer-item" 
+                class="operation-btn" 
                 :to="`/editNote/${ note.id }`"
             >
                 Edit
             </RouterLink>
             <a href="#" 
-                class="card-footer-item delete-note" 
+                class="operation-btn delete-note" 
                 @click.prevent="modals.deleteNote = true"
             >
                 Delete
@@ -65,18 +65,3 @@ const modals = reactive({
 
 </script>
 
-<style scoped>
-
-.card-footer-item:hover {
-    background-color: rgba(43, 130, 73, 0.55) !important;
-    border-radius: 0.25rem;
-}
-
-.card-footer-item.delete-note:hover {
-    /* Persian Red */
-    background-color: rgba(213, 45, 48, 0.80) !important;
-    color: #fff;
-    border-radius: 0.25rem;
-}
-
-</style>
