@@ -37,7 +37,7 @@
                     </MasonryWall>
                 </div>
                 <div class="sticky-post">
-                    <button class="custom-button" @click.prevent="modals.addNote = true">+</button>
+                    <button class="custom-add-button" @click.prevent="modals.addNote = true">+</button>
                 </div>
     
                 <ModalAddNote 
@@ -119,12 +119,12 @@ const characterLength = (contentLength) => computed(() => {
     bottom: 20px;
 }
 
-.custom-link, .custom-button {
+.custom-link, .custom-add-button {
     color: var(--darkgrey-color);
     cursor: pointer;
 }
 
-.custom-button {
+.custom-add-button {
     height: 75px;
     width: auto;
     background-color: var(--brown-yellow);
@@ -138,7 +138,7 @@ const characterLength = (contentLength) => computed(() => {
     box-shadow:4px 4px #555555;
 }
 
-.custom-button:active {
+.custom-add-button:active {
     border: 1.5px solid violet;
     transform: translateY(4px) !important;
 }
