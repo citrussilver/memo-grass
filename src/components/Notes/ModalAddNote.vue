@@ -12,15 +12,15 @@
                 <template #buttons>
                     <button 
                         @click="closeModal"
-                        class="button is-link lava" 
+                        class="button operation-btn delete-note columbia-blue-color darkgrey" 
                     >
-                        Cancel
+                        <span class="material-symbols-outlined">cancel</span>
                     </button>
                     <button 
-                        class="button is-link bangladesh-green" 
+                        class="button operation-btn columbia-blue-color darkgrey" 
                         @click="addNote"
                     >
-                        Add New Note
+                        <span class="material-symbols-outlined">save</span>
                     </button>
                 </template>
             </SmartAddEditNote>
@@ -80,13 +80,3 @@ const addNote = () => {
 
 
 </script>
-
-<style scoped>
-.bangladesh-green {
-    background-color: rgb(0, 114, 80) !important;
-}
-
-.lava {
-    background-color: rgb(207, 22, 23) !important;
-}
-</style>

@@ -77,7 +77,6 @@ import MasonryWall from '@yeger/vue-masonry-wall'
 import ModalAddNote from '@/components/Notes/ModalAddNote.vue'
 import ModalEditNote from '@/components/Notes/ModalEditNote.vue'
 import ModalDeleteNote from '@/components/Notes/ModalDeleteNote.vue'
-import Note from '@/components/Notes/Note.vue'
 
 const storeNotes = useStoreNotes()
 
@@ -107,11 +106,11 @@ const characterLength = (contentLength) => computed(() => {
 
 <style scoped>
 .bangladesh-green {
-    background-color: rgb(0, 114, 80) !important;
+    background-color: var(--bangladesh-green) !important;
 }
 
 .sea-green {
-    background-color: rgba(43, 130, 73, 0.75) !important;
+    background-color: var(--sea-green-75-perc) !important;
 }
 
 .sticky-post {
@@ -121,14 +120,14 @@ const characterLength = (contentLength) => computed(() => {
 }
 
 .custom-link, .custom-button {
-    color: #363636;
+    color: var(--darkgrey-color);
     cursor: pointer;
 }
 
 .custom-button {
     height: 75px;
     width: auto;
-    background-color: orange;
+    background-color: var(--brown-yellow);
     font-size: 40pt;
     border-radius: 50px;
     padding: 0 25px;
@@ -153,22 +152,21 @@ const characterLength = (contentLength) => computed(() => {
 }
 
 .card-footer-item {
-    color: rgba(43, 130, 73, 0.55) !important;
+    color: var(--sea-green-55-perc) !important;
 }
 
 .card-footer-item:hover {
-    background-color: rgba(43, 130, 73, 0.55) !important;
+    background-color: var(--sea-green-55-perc) !important;
     border-radius: 0.25rem;
     color: #fff !important;
 }
 
 .card-footer-item.delete-note {
-    color: rgba(213, 45, 48, 0.80) !important;
+    color: var(--persian-red-80-perc) !important;
 }
 
 .card-footer-item.delete-note:hover {
-    /* Persian Red */
-    background-color: rgba(213, 45, 48, 0.80) !important;
+    background-color: var(--persian-red-80-perc) !important;
     color: #fff !important;
     border-radius: 0.25rem;
 }

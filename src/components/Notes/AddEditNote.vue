@@ -91,11 +91,11 @@ defineExpose({
 
 <style scoped>
 .lite-french-beige {
-    background-color: rgb(210, 173, 114) !important;
+    background-color: var(--lite-french-beige) !important;
 }
 
 .sea-green {
-    background-color: rgba(43, 130, 73, 0.75) !important;
+    background-color: var(--sea-green-75-perc) !important;
 }
 
 .clear-btn {
