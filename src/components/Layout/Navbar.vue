@@ -135,8 +135,8 @@ const logout = () => {
     }
 
     .white-ft {
-    /* background-color: rgba(184, 224, 82, 0.3); */
-    color: #000 !important;
-}
+        /* background-color: rgba(184, 224, 82, 0.3); */
+        color: #000 !important;
+    }
 }
 </style>

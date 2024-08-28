@@ -18,4 +18,5 @@ onMounted(() => {
 
 <style>
 @import 'bulma/css/bulma.min.css';
+@import '@/assets/main.css';
 </style>
