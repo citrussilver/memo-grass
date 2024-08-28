@@ -1,5 +1,5 @@
 <template>
-    <div style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center; align-items: center;">
         <div class="cards-container">
             <div class="card-1">
                 <div style="position: relative;">
@@ -10,7 +10,6 @@
                         ref="textareaRef" 
                         :value=modelValue 
                         @input="$emit('update:modelValue', $event.target.value)" 
-                        rows="22" 
                         v-autofocus
                     >
                     </textarea>
@@ -115,7 +114,6 @@ defineExpose({
     z-index: 1;
 
 
-    /* Brown Yellow */
     background-color: var(--brown-yellow);
 
     border-radius: 20px;
@@ -132,7 +130,6 @@ defineExpose({
     top: calc(var(--top-post) - 20px); 
     z-index: 0;
     
-    /* Arylide Yellow */
     background-color: var(--arylide-yellow);
     
     border-radius: 20px;
@@ -189,10 +186,67 @@ defineExpose({
 }
 
 @media (max-width: 1023px) {
+
     .cards-container {
         position: relative; 
         left: 0;
-        width: 100%;
+        width: 90%;
+        height: 500px;
     }
+
+    .card-1 {
+  
+        position: absolute; 
+        left: var(--left-post); 
+        top: var(--top-post); 
+        z-index: 2;
+        
+        /* Columbia Blue */
+        background-color: var(--columbia-blue);
+        
+        border-radius: 20px;
+        padding: 2em;
+        width: 90%;
+        height: calc(var(--card-height) - calc(var(--card-height) * 0.40));
+    }
+
+    .card-2 {
+    
+        position: absolute; 
+        left: calc(var(--left-post) + 10px); 
+        top: calc(var(--top-post) - 10px); 
+        z-index: 1;
+
+        background-color: var(--brown-yellow);
+
+        border-radius: 20px;
+        padding: 2em;
+        width: 90%;
+        height: calc(var(--card-height) - calc(var(--card-height) * 0.40));
+
+        transform: rotate(var(--base-degree));
+    }
+
+    .card-3 {
+        position: absolute; 
+        left: calc(var(--left-post) + 20px); 
+        top: calc(var(--top-post) - 20px); 
+        z-index: 0;
+        
+        background-color: var(--arylide-yellow);
+        
+        border-radius: 20px;
+        padding: 2em;
+        width: 90%;
+        height: calc(var(--card-height) - calc(var(--card-height) * 0.40));
+        
+        transform: rotate(calc(var(--base-degree)*2));
+        
+    }
+
+    .cust-textarea {
+        height: calc(var(--card-height) * 0.45);
+    }
+
 }
 </style>
