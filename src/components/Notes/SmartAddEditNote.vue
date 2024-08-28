@@ -151,8 +151,8 @@ defineExpose({
 
 .clear-btn {
     position: absolute; 
-    top: 10px; 
-    right: -4px; 
+    top: 0px; 
+    right: 15px;
     opacity: 0.5;
 }
 
@@ -168,6 +168,8 @@ defineExpose({
 
     box-shadow: none !important;
 
+
+    height: calc(var(--card-height) * 0.85);
     width: 100%;
     border-color: none !important;
 
