@@ -1,5 +1,5 @@
 <template>
-    <div class="modal is-active p-2">
+    <div class="modal is-active p-2 note-write-card">
         <div class="modal-background"></div>
         <div 
             class="modal-card" 
@@ -68,8 +68,6 @@ onClickOutside(modalCardRef, closeModal)
 useWatchCharacters(noteContent)
 
 const handleSaveClicked = () => {
-
-    console.log('noteContent.value', noteContent.value)
 
     if(noteContent.value.length > 0) {
         storeNotes.updateNote(props.noteId, noteContent.value)

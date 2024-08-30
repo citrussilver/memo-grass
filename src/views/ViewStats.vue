@@ -1,5 +1,5 @@
 <template>
-    <div class="stats">
+    <div class="stats transition-up">
         <table class="table is-fullwidth">
             <thead>
                 <tr>

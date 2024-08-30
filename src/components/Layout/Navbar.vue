@@ -108,10 +108,6 @@ const logout = () => {
 
 <style>
 
-.may-green {
-    background-color: rgb(88, 158, 75) !important;
-}
-
 .white-ft {
     /* background-color: rgba(184, 224, 82, 0.3); */
     color: #fff !important;
