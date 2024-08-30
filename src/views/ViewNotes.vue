@@ -10,9 +10,9 @@
         <div v-else>
             <div>
                 <div>
-                    <MasonryWall :items="storeNotes.notes" :max-columns="2" :column-width="150" :gap="16">
+                    <MasonryWall :items="storeNotes.notes" :max-columns="`${allowed_cols}`" :column-width="150" :gap="16" id="notes-view-cards">
                         <template #default="{ item, index }">
-                        <div class="card flex items-center justify-center px-5 py-5">
+                        <div class="card flex items-center justify-center px-5 py-5 gallery-masonry-list">
                             <a href="#" class="custom-link" @click.prevent="modals.editNote = true; targetNoteId = item.id;">
                                 {{ item.content }}
                             </a>
@@ -70,17 +70,39 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
 import { useStoreNotes } from '@/stores/storeNotes'
 import { useDateFormat } from '@vueuse/core'
 import MasonryWall from '@yeger/vue-masonry-wall'
 import ModalAddNote from '@/components/Notes/ModalAddNote.vue'
 import ModalEditNote from '@/components/Notes/ModalEditNote.vue'
 import ModalDeleteNote from '@/components/Notes/ModalDeleteNote.vue'
+import { useBreakpoints } from '@vueuse/core'
 
 const storeNotes = useStoreNotes()
 
 const targetNoteId = ref('')
+
+const allowed_cols = ref(0)
+
+const breakpoints = useBreakpoints({
+  mobile: 0, // optional
+  tablet: 640,
+  laptop: 1024,
+  desktop: 1280,
+})
+
+const mobilevp = breakpoints.between('mobile', 'tablet')
+const activeBreakpoint = breakpoints.active()
+
+
+if(mobilevp.value) {
+    allowed_cols.value = 1
+}
+
+if(activeBreakpoint.value == 'desktop') {
+    allowed_cols.value = 4
+}
 
 /* modals */
 

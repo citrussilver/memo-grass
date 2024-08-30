@@ -10,7 +10,7 @@
                 </li>
             </ul>
         </div>
-        <div class="card auth-form">
+        <div class="card auth-form transition-up">
             <div class="card-content">
                 <div class="title has-text-centered">
                     {{ formTitle }}
@@ -19,33 +19,33 @@
                 <form 
                     @submit.prevent="onSubmit()"
                 >
-                    <div class="field">
+                    <div>
                         <label class="label">Email</label>
-                        <div class="control">
+                        <div class="field-group">
                             <input 
-                                class="input" 
                                 type="email" 
                                 placeholder="e.g. takoyakihoshii@gmail.com" 
                                 v-model="credentials.email" 
                             >
+                            <div class="line"></div>
                         </div>
                     </div>
 
-                    <div class="field">
+                    <div>
                         <label class="label">Password</label>
-                        <div class="control">
+                        <div class="field-group">
                             <input 
-                                class="input" 
                                 type="password" 
                                 placeholder="Enter you password"
                                 v-model="credentials.password"
                             >
+                            <div class="line"></div>
                         </div>
                     </div>
 
                     <div class="field is-grouped is-grouped-right">
                         <p class="control">
-                            <button class="button is-primary">
+                            <button class="button may-green white-txt">
                             {{  formTitle }}
                             </button>
                         </p>
