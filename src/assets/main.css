@@ -2,6 +2,11 @@
     font-size: 16px;;
     --darkgrey-color: rgb(54, 54, 54);
 
+    --anim-duration-zero-three: 0.3s;
+    --anim-duration: 0.8s;
+    --anim-delay-one-sec: 0.3s;
+    --anim-fill-mode: forwards;
+
     /*
         Pineapple Cocktails Colors 
         https://www.schemecolor.com/pineapple-cocktails.php
@@ -28,8 +33,16 @@
     --top-post: 70px;
 }
 
+.may-green {
+    background-color: rgb(88, 158, 75) !important;
+}
+
 .darkgrey {
-    color: var(--darkgrey-color);
+    color: rgb(54, 54, 54);
+}
+
+.white-txt {
+    color: #fff;
 }
 
 .columbia-blue-color {
@@ -45,4 +58,70 @@
     background-color: var(--persian-red-80-perc) !important;
     color: #fff;
     border-radius: 0.25rem;
+}
+
+/* animations */
+
+#notes-view-cards {
+    position: relative;
+    bottom: -3rem;
+    opacity: 0;
+    animation-name: img-fadein;
+    animation-delay: var(--anim-delay-one-sec);
+    animation-duration: var(--anim-duration);
+    animation-fill-mode: var(--anim-fill-mode);
+}
+
+.transition-up, .note-write-card > div > div {
+    position: relative;
+    bottom: -3rem;
+    opacity: 0;
+    animation-name: img-fadein;
+    animation-delay: var(--anim-delay-one-sec);
+    animation-duration: var(--anim-duration);
+    animation-fill-mode: var(--anim-fill-mode);
+}
+
+@keyframes img-fadein {
+    to {
+        opacity: 1;
+        bottom: 0rem;
+    }
+}
+
+.field-group {
+    text-align: center;
+}
+
+.field-group .line {
+    text-align: center;
+    height: 2px;
+    width: 0px;
+    position: absolute;
+    background-color: var(--primary);
+    display: inline-block;
+    transition: .3s width ease-in-out;
+    position: relative;
+    top: -1.10rem;
+}
+
+input {
+    border: 0;
+    border-bottom: 1px solid var(--sea-green-55-perc);
+    padding: 10px;
+    outline: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    background: inherit;
+    border-style: none none line none;
+}
+
+input[type="email"]:focus + .line, input[type="password"]:focus + .line {
+    width: 100%;
+    background-color: var(--brown-yellow);
 }

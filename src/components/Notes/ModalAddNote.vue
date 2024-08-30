@@ -1,5 +1,5 @@
 <template>
-    <div class="modal is-active p-2">
+    <div class="modal is-active p-2 note-write-card">
         <div class="modal-background"></div>
         <div 
             class="modal-card" 
