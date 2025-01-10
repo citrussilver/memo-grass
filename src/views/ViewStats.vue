@@ -23,17 +23,17 @@
             <input 
                 type="text" 
                 class="input" 
-                placeholder="Do you love noteballs??" 
-                v-model="loveNoteballs"
+                placeholder="Do you love memo grass??" 
+                v-model="loveMemograss"
                 v-autofocus
             >
             <div 
                 style="position: absolute; bottom: 7px; right: 5px;" 
-                v-if="loveNoteballs.length > 0"
+                v-if="loveMemograss.length > 0"
             >
                 <button 
                     class="delete has-background-grey" 
-                    @click="loveNoteballs = ''"
+                    @click="loveMemograss = ''"
                 >
                     ✕
                 </button>
@@ -50,8 +50,8 @@ import { useWatchCharacters } from '@/use/useWatchCharacters'
 
 const storeNotes = useStoreNotes()
 
-const loveNoteballs = ref('')
+const loveMemograss = ref('')
 
-useWatchCharacters(loveNoteballs, 50)
+useWatchCharacters(loveMemograss, 50)
 
 </script>
