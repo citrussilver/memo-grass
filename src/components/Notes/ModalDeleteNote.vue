@@ -5,34 +5,36 @@
             class="modal-card" 
             ref="modalCardRef"
         >
-            <header class="modal-card-head">
-            <p class="modal-card-title">Delete Note?</p>
-            <button 
-                class="delete" 
-                aria-label="close" 
-                @click="closeModal"
-            >
-            </button>
-            </header>
-            <section class="modal-card-body">
-                Are you sure you want to delete this note?
-            </section>
-            <footer class="modal-card-foot is-justify-content-flex-end">
-            <div class="buttons">
+            <div class="transition-up">
+                <header class="modal-card-head">
+                <p class="modal-card-title">Delete Note?</p>
                 <button 
-                    class="button" 
+                    class="delete" 
+                    aria-label="close" 
                     @click="closeModal"
                 >
-                    Cancel
                 </button>
-                <button 
-                    class="button is-danger" 
-                    @click="deleteNote"
-                >
-                    Delete
-                </button>
+                </header>
+                <section class="modal-card-body">
+                    Are you sure you want to delete this note?
+                </section>
+                <footer class="modal-card-foot is-justify-content-flex-end">
+                <div class="buttons">
+                    <button 
+                        class="button" 
+                        @click="closeModal"
+                    >
+                        Cancel
+                    </button>
+                    <button 
+                        class="button is-danger" 
+                        @click="deleteNote"
+                    >
+                        Delete
+                    </button>
+                </div>
+                </footer>
             </div>
-            </footer>
         </div>
     </div>
 </template>

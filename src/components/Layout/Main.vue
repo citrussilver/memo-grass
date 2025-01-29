@@ -5,6 +5,7 @@
       <div class="container is-max-desktop px-2 py-4">
         <RouterView />
       </div>
+      <Footer />
       <div class="grass-background">
         <img src="@/assets/images/grass_5_4crp.jpg" alt="">
       </div>
@@ -14,6 +15,7 @@
 
 <script setup>
 import Navbar from './Navbar.vue'
+import Footer from './Footer.vue';
 </script>
 
 <style scoped>
@@ -22,6 +24,9 @@ import Navbar from './Navbar.vue'
 }
 
 .grass-background {
-  position:fixed; bottom:0px; z-index: -1; opacity: 50%;
+  position:fixed; 
+  bottom: 0px; 
+  z-index: -2; 
+  opacity: 50%;
 }
 </style>
