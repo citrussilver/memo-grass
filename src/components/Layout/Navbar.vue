@@ -108,13 +108,17 @@ const logout = () => {
 
 <style>
 
+.navbar-item {
+    background-color: rgb(88, 158, 75) !important;
+}
+
 .white-ft {
     /* background-color: rgba(184, 224, 82, 0.3); */
     color: #fff !important;
 }
 
-.white-ft:hover, .lite-jun-bud {
-    background-color: rgb(88, 158, 75) !important;
+.navbar-item:hover {
+    background-color: rgb(163, 182, 139) !important;
 }
 
 .laurel-green {
@@ -128,6 +132,10 @@ const logout = () => {
         position: absolute;
         left: 0;
         width: 100%;
+    }
+
+    .navbar-item {
+        background-color: unset !important;
     }
 
     .white-ft {
