@@ -1,6 +1,6 @@
 <template>
     <div class="notes">
-
+        
         <progress 
             class="progress is-large is-success" 
             max="100" 
@@ -21,7 +21,7 @@
                                 <small>{{ dateFormatted(item.date) }}</small>
                                 <small>{{ characterLength(item.content.length) }}</small>
                             </div>
-                            <div style="display: flex;">
+                            <div class="is-flex">
                                 <a href="#" class="card-footer-item" @click.prevent="modals.editNote = true; targetNoteId = item.id;">
                                     <span class="material-symbols-outlined">edit</span>
                                 </a>
@@ -60,7 +60,7 @@
         </div>
 
         <div 
-            v-if="!storeNotes.notes.length" 
+            v-if="!storeNotes.notes.length && storeNotes.notesLoaded" 
             class="is-size-4 has-text-centered has-text-grey-light"
         >
             No notes yet...
