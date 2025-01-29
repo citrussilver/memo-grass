@@ -1,5 +1,5 @@
 <template>
-    <div style="display: flex; justify-content: center; align-items: center;">
+    <div class="is-flex is-justify-content-center is-align-items-center">
         <div class="cards-container">
             <div class="card-1">
                 <div style="position: relative;">
