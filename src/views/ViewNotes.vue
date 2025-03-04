@@ -1,11 +1,15 @@
 <template>
     <div class="notes">
         
-        <progress 
+        <!-- <progress 
             class="progress is-large is-success" 
             max="100" 
             v-if="!storeNotes.notesLoaded"
-        />
+        /> -->
+
+        <SpinnerLoader v-if="!storeNotes.notesLoaded"/>
+
+        <SpinnerLoader v-if="spinLoader"/>
 
         <div v-else>
             <div>
@@ -42,20 +46,24 @@
     
                 <ModalAddNote 
                     v-if="modals.addNote" 
-                    v-model="modals.addNote"
+                    v-model="modals.addNote" 
+                    @show-spinner="handleShowSpinner()" 
                 />
 
                 <ModalEditNote 
                     v-if="modals.editNote" 
                     v-model="modals.editNote" 
-                    :noteId="targetNoteId"
+                    :noteId="targetNoteId" 
+                    @show-spinner="handleShowSpinner()" 
                 />
 
                 <ModalDeleteNote 
                     v-if="modals.deleteNote" 
                     v-model="modals.deleteNote" 
-                    :noteId="targetNoteId"
-                />
+                    :noteId="targetNoteId" 
+                    @show-spinner="handleShowSpinner()" 
+                />                
+
             </div>
         </div>
 
@@ -78,6 +86,9 @@ import ModalAddNote from '@/components/Notes/ModalAddNote.vue'
 import ModalEditNote from '@/components/Notes/ModalEditNote.vue'
 import ModalDeleteNote from '@/components/Notes/ModalDeleteNote.vue'
 import { useBreakpoints } from '@vueuse/core'
+import SpinnerLoader from '@/components/SpinnerLoader.vue'
+
+const spinLoader = ref(false)
 
 const storeNotes = useStoreNotes()
 
@@ -109,7 +120,8 @@ if(activeBreakpoint.value == 'desktop') {
 const modals = reactive({
     addNote: false,
     editNote: false,
-    deleteNote: false
+    deleteNote: false,
+    spinner: false
 })
 
 
@@ -123,6 +135,20 @@ const characterLength = (contentLength) => computed(() => {
     let description = length > 1 ? 'characters' : 'character'
     return `${length} ${description}`
 })
+
+function handleShowSpinner() {
+
+    // fake loader
+
+    setTimeout(() => {
+        spinLoader.value = true
+    }, 1000);
+
+    setTimeout(() => {
+        spinLoader.value = false
+    }, 1800);
+
+}
 
 </script>
 
