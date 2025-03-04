@@ -55,10 +55,11 @@ const props = defineProps({
     }
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'showSpinner'])
 
 const closeModal = () => {
     emit('update:modelValue', false)
+    emit('showSpinner')
 }
 
 const modalCardRef = ref(null)
