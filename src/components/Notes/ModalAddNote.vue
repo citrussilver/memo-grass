@@ -47,10 +47,11 @@ const newNote = ref('')
 
 const storeNotes = useStoreNotes()
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'showSpinner'])
 
 const closeModal = () => {
     emit('update:modelValue', false)
+    emit('showSpinner')
 }
 
 useWatchCharacters(newNote)

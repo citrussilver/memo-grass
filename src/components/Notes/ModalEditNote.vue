@@ -46,7 +46,7 @@ const props = defineProps({
     noteId: {
         type: String,
         required: true
-    }
+    },
 })
 
 const noteContent = ref('')
@@ -55,10 +55,11 @@ const storeNotes = useStoreNotes()
 
 noteContent.value = storeNotes.getNoteContent(props.noteId)
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'showSpinner'])
 
 const closeModal = () => {
     emit('update:modelValue', false)
+    emit('showSpinner')
 }
 
 const modalCardRef = ref(null)
