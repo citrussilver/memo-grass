@@ -5,7 +5,7 @@ import {
   query, orderBy 
 } from "firebase/firestore"
 
-import { db } from '@/firebase/firebase'
+import { db } from '@/js/firebase'
 import { useStoreAuth } from './storeAuth'
 
 let notesCollectionRef
